@@ -18,7 +18,7 @@ theme_nber <- function(base_size = 11, base_family = ""){
       panel.grid.major.x = element_blank(),
       panel.grid.minor.x = element_blank(),
       legend.key = element_rect(colour = NA),
-      # axis.line.x = element_line(colour = "grey92", size = 0.5, linetype = 1, lineend = "butt"),
+      axis.line.x = element_line(colour = "black", size = 0.5, linetype = 1, lineend = "butt"),
       plot.title = element_text(colour = "grey30", face = "bold", size = rel(1.2), hjust = 0,
                                 vjust = 1, margin = margin(b = half_line * 1.2)),
       plot.subtitle = element_text(size = rel(0.9), hjust = 0, vjust = 1,
