@@ -2,10 +2,15 @@
 % Please edit documentation in R/theme_nber.R
 \name{theme_nber}
 \alias{theme_nber}
-\title{A ggplot theme based on the NBER's Digest and Reporter graphs}
+\title{Theme inspired by NBER's Digest and Reporter graphs}
 \usage{
 theme_nber(base_size = 11, base_family = "")
 }
+\arguments{
+\item{base_size}{base font size}
+
+\item{base_family}{base font family}
+}
 \description{
-A ggplot theme based on the NBER's Digest and Reporter graphs
+Theme inspired by NBER's Digest and Reporter graphs
 }

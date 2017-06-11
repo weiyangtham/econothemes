@@ -1,4 +1,8 @@
-#' A ggplot theme based on the NBER's Digest and Reporter graphs
+#' Theme inspired by NBER's Digest and Reporter graphs
+#'
+#' @inheritParams ggplot2::theme_grey
+#'
+#' @export
 
 theme_nber <- function(base_size = 11, base_family = ""){
   half_line <- base_size/2
