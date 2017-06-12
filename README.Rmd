@@ -1,0 +1,47 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "README-"
+)
+```
+
+This is mostly an experimental project in building a package and understanding ggplot themes better, but if it turns out to be helpful and you have suggestions I am definitely interested in hearing from you. Hit me up on [twitter](https://twitter.com/wytham88). 
+
+## Install
+```{r, eval = FALSE}
+devtools::install_github("weiyangtham/econothemes")
+```
+
+### NBER theme
+
+ggplot2 theme inspired by the NBER's [Reporter](http://www.nber.org/reporter/) and [Digest](http://www.nber.org/digest/). 
+
+The relevant functions are `theme_nber()`, `scale_color_nber()`, and `scale_fill_nber()`. 
+
+Note that the scales draw on a palette with only two colors. The NBER typically uses a sequential palette of different shades of blue, which doesn't work so well with more than two values. If you want to stay true to that style, you can try building a sequential palette with [ColorBrewer](http://colorbrewer2.org/#type=sequential&scheme=Blues&n=3) or using the [RColorBrewer](https://cran.rstudio.com/web/packages/RColorBrewer/RColorBrewer.pdf) package. 
+
+#### Example
+```{r, message = FALSE, warning = FALSE}
+library(gapminder)
+library(tidyverse)
+library(econothemes)
+
+df = filter(gapminder, country %in% c("United States", "United Kingdom"))
+
+ggplot(df, aes(year, lifeExp, color = country)) + 
+  geom_line() + 
+  theme_nber() + 
+  scale_colour_nber() + 
+  labs(title = "Life Expectancy in US and UK", 
+       subtitle = "theme_nber() example", 
+       caption = "Source: Gapminder")
+
+```
+
