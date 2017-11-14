@@ -1,3 +1,18 @@
+#' Intervals with upper and lower bounds as separate lines
+#'
+#' Intervals are defined by `x`, `ymin`, and `ymax`.
+#'
+#' @inheritParams layer
+#'
+#' @export
+#'
+#' @examples
+#'
+#' df = data.frame(year = 2001:2003, upper = c(1, 1.5, 1.6), lower = c(1, 0.9, 0.8))
+#'
+#' ggplot(df, aes(x = year, ymin = lower, ymax = upper)) + geom_errorline()
+
+
 geom_errorline <- function(mapping = NULL, data = NULL,
                            stat = "identity", position = "identity",
                            ...,
@@ -19,11 +34,16 @@ geom_errorline <- function(mapping = NULL, data = NULL,
   )
 }
 
-GeomErrorline <- ggproto("GeomErrorline", Geom,
-                         default_aes = aes(colour = "black", size = 0.5, linetype = 1, width = 0.5,
+#' @rdname ggplot2-ggproto
+#' @format NULL
+#' @usage NULL
+#' @export
+
+GeomErrorline <- ggplot2::ggproto("GeomErrorline", ggplot2::Geom,
+                         default_aes = ggplot2::aes(colour = "black", size = 0.5, linetype = 1, width = 0.5,
                                            alpha = NA),
 
-                         draw_key = draw_key_path,
+                         draw_key = ggplot2::draw_key_path,
 
                          required_aes = c("x", "ymin", "ymax"),
 
@@ -33,9 +53,14 @@ GeomErrorline <- ggproto("GeomErrorline", Geom,
 
                          draw_panel = function(data, panel_params, coord, width = NULL) {
 
-                           d = tidyr::gather(select(data, -y), key = "minmax", value = "y", c(ymin, ymax)) %>%
-                             dplyr::mutate(group = group * 2L, group = group - stringr::str_detect(minmax, "min"))
+                           if ("y" %in% names(data)){
+                             data = select(data, -y)
+                           }
 
-                           GeomPath$draw_panel(d,panel_params, coord)
+                           d = tidyr::gather(data, key = "minmax", value = "y", c(ymin, ymax)) %>%
+                             mutate(group = group * 2L, group = group - stringr::str_detect(minmax, "min"))
+
+
+                           ggplot2::GeomPath$draw_panel(d,panel_params, coord)
                          }
 )
