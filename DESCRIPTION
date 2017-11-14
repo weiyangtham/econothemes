@@ -3,8 +3,8 @@ Type: Package
 Title: NBER-inspired theme for ggplot
 Version: 0.1.0
 Author: Wei Yang Tham
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: abcd
+Maintainer: Wei Yang Tham <weiyang.tham@gmail.com>
+Description: Custom themes and geoms 
 License: What license is it under?
 Encoding: UTF-8
 LazyData: true
