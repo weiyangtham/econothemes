@@ -57,8 +57,8 @@ GeomErrorline <- ggplot2::ggproto("GeomErrorline", ggplot2::Geom,
                              data = data[!names(data) %in% "y"]
                            }
 
-                           d = tidyr::gather(data, key = "minmax", value = "y", c(ymin, ymax)) %>%
-                             dplyr::mutate(group = group * 2L, group = group - stringr::str_detect(minmax, "min"))
+                           d = tidyr::gather(data, key = "minmax", value = "y", c(ymin, ymax))
+                           d = dplyr::mutate(d, group = group * 2L, group = group - stringr::str_detect(minmax, "min"))
 
 
                            ggplot2::GeomPath$draw_panel(d,panel_params, coord)
