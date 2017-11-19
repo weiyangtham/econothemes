@@ -2,7 +2,14 @@
 #'
 #' @inheritParams ggplot2::theme_grey
 #'
+#' @import ggplot2
+#'
 #' @export
+#'
+#' @examples
+#' p <- ggplot(mtcars) + geom_point(aes(x = wt, y = mpg, colour = factor(gear))) + facet_wrap(~am)
+#'
+#' p + theme_nber()
 
 theme_nber <- function(base_size = 11, base_family = ""){
   half_line <- base_size/2

@@ -14,3 +14,8 @@ theme_nber(base_size = 11, base_family = "")
 \description{
 Theme inspired by NBER's Digest and Reporter graphs
 }
+\examples{
+p <- ggplot(mtcars) + geom_point(aes(x = wt, y = mpg, colour = factor(gear))) + facet_wrap(~am)
+
+p + theme_nber()
+}

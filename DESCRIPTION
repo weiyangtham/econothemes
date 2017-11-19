@@ -5,6 +5,11 @@ Version: 0.1.0
 Author: Wei Yang Tham
 Maintainer: Wei Yang Tham <weiyang.tham@gmail.com>
 Description: Custom themes and geoms 
+Depends:
+  ggplot2
+Imports:
+  tidyr,
+  stringr
 License: What license is it under?
 Encoding: UTF-8
 LazyData: true
