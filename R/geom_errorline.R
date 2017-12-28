@@ -57,6 +57,7 @@ GeomErrorline <- ggplot2::ggproto("GeomErrorline", ggplot2::Geom,
                              data = data[!names(data) %in% "y"]
                            }
 
+                           # organize ymin, ymax into same column, identified as different groups
                            d = tidyr::gather(data, key = "minmax", value = "y", c(ymin, ymax))
                            d = dplyr::mutate(d, group = group * 2L, group = group - stringr::str_detect(minmax, "min"))
 
