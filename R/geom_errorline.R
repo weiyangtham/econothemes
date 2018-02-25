@@ -3,7 +3,7 @@
 #' Intervals are defined by `x`, `ymin`, and `ymax`.
 #'
 #' @inheritParams ggplot2::layer
-#'
+#' @inheritParams ggplot2::geom_errorbar
 #' @export
 #'
 #' @examples
