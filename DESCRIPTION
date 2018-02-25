@@ -4,12 +4,13 @@ Title: NBER-inspired theme for ggplot
 Version: 0.1.0
 Author: Wei Yang Tham
 Maintainer: Wei Yang Tham <weiyang.tham@gmail.com>
-Description: Custom themes and geoms 
+Description: ggplot2 themes and geoms loosely based on an economics theme. 
 Depends:
   ggplot2
 Imports:
-  tidyr,
-  stringr
+  scales,
+  stringr,
+  tidyr
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
